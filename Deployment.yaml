@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getbestanswers-deployment
+  namespace: getbestanswers-ns
+  labels:
+    app: getbestanswers-app
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: getbestanswers-app
+  template:
+    metadata:
+      labels:
+        app: getbestanswers-app
+    spec:
+      imagePullSecrets:
+        - name: docker-registry-secret
+      containers:
+        - name: getbestanswers-container
+          image: unibots/getbestanswers:master_1.0.138
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 3000Mi
+              cpu: 3000m
+            requests:
+              memory: 900Mi
+              cpu: 900m
+          ports:
+          - containerPort: 3000   
+
+
+
+
+
+
+
+
