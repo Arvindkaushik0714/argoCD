@@ -8,7 +8,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: getbestanswers-deployment
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 200
   metrics:
     - type: Resource
