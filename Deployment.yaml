@@ -24,7 +24,7 @@ spec:
         - name: docker-registry-secret
       containers:
         - name: getbestanswers-container
-          image: unibots/getbestanswers:master_1.0.138
+          image: unibots/getbestanswers:master_1.0.142
           imagePullPolicy: Always
           resources:
             limits:
